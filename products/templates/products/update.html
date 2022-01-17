@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+Update product
+{% endblock %}
+
+
+{% block content %}
+<form method="post" enctype='multipart/form-data'>
+    {% csrf_token %}
+
+    {{ form | crispy }}
+
+    <input class="btn btn-primary mt-3" type="submit" value="Update">
+    <a href="{% url 'products:list' %}" class="btn btn-primary mt-3">Cancel</a>
+
+</form>
+{% endblock %}
+

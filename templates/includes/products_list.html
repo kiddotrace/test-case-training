@@ -1,0 +1,28 @@
+<table class="table table-striped">
+    <tr>
+        <th>uuid</th>
+        <th>Logo</th>
+        <th>Product name</th>
+        <th>Description</th>
+        <th>Image flip time</th>
+        <th>Updated</th>
+        <th>Created</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
+
+    {% for product in list_objects %}
+    <td>{{product.uuid}}</td>
+    <td><img src="/media/{{product.logo}}" width="150" height="150"></td>
+    <td>{{product.name}}</td>
+    <td>{{product.description}}</td>
+    <td>{{product.rotate_duration}}</td>
+    <td>{{product.created}}</td>
+    <td>{{product.updated}}</td>
+    <td><a href="{% url 'products:update' product.uuid %}"><i class="bi bi-pencil-square"></i></a></td>
+    <td><a href="{% url 'products:delete' product.uuid %}"><i class="bi bi-file-earmark-x"></i></a></td>
+    </tr>
+
+    {% endfor %}
+
+</table>
